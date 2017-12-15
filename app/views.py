@@ -7,4 +7,11 @@ def index():
     '''
     View root page function that returns the index and its data
     '''
-    return render_template('index.html')
+    message = "Hello owolr"
+    return render_template('index.html', message= message)
+@app.route('/user/<int:user_id>')
+def user(user_id):
+    '''
+    View root function that returns a user page and data
+    '''
+    return render_template('user.html',id = user_id)
