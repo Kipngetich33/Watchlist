@@ -40,4 +40,4 @@ def search(movie_name):
     movie_name_format = "+".join(movie_name_list)
     searched_movies = search_movie(movie_name_format)
     title = f'search results for {movie_name}'
-    return render_template('search.html', movies = searched_movies)
+    return render_template('search.html',movies = searched_movies)
