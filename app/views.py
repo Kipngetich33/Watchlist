@@ -1,9 +1,9 @@
 from flask import render_template,request,redirect,url_for
 from app import app
 from .request import get_movies, get_movie, search_movie
-from models import review
+from .models import review
 from .forms import ReviewForm 
-ReviewForm = review.Review
+Review= review.Review
 
 @app.route('/')
 def index():
@@ -55,4 +55,6 @@ def new_review(id):
         review = form.review.data
         new_review = Review (movie.id,title,movie.poster,review)
         new_review.save_review()
-        return redirect(url_for('movie',id = movie.id ))   
+        return redirect(url_for('new_review',id=movie.id ))  
+    title = f' {movie.title}review'
+    return render_template('new_review.html',title = title, review_form=form, movie=movie) 
